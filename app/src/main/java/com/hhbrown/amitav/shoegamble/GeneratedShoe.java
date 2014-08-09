@@ -114,6 +114,22 @@ public class GeneratedShoe extends Activity {
                     refreshUI();
                 }
             });
+            buy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    HashMap<String,String> shoe;
+                    if((times_clicked-1)==0){
+                        shoe = shoesList.get(shoe1);
+
+                    }else{
+                        shoe = shoesList.get(shoe2);
+                    }
+                    String link = shoe.get("link");
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(link));
+                    startActivity(intent);
+                }
+            });
             return rootView;
         }
         public class FetchShoesTask extends AsyncTask<String , Void, Void > {
@@ -297,6 +313,7 @@ public class GeneratedShoe extends Activity {
                     shoeHashmap.put("price",shoe.getString("price"));
                     shoeHashmap.put("image_link",shoe.getString("image_link"));
                     shoeHashmap.put("description",shoe.getString("description"));
+                    shoeHashmap.put("link",shoe.getString("link"));
                     Log.d("a", "Shoe title:" + shoe.getString("title"));
                     shoesList.add(shoeHashmap);
                 }
