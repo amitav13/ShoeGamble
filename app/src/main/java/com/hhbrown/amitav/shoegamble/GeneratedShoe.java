@@ -145,7 +145,7 @@ public class GeneratedShoe extends Activity {
                 HttpsURLConnection urlConnection = null,dataUrlConnection = null;
                 BufferedReader reader = null,reader2 = null;
                 final String MEN_BASE_URL = "https://www.apitite.net/api/hhbrown/menminmax/json?";
-                final String WOMEN_BASE_URL = "https://www.apitite.net/api/hhbrown/menminmax/json?";
+                final String WOMEN_BASE_URL = "https://www.apitite.net/api/hhbrown/womenminmax/json?";
 
 
                 String authJsonStr = null;

@@ -1,5 +1,10 @@
 package com.hhbrown.amitav.shoegamble;
 
+//TODO fix app skipping loading shoes on removing device from pc
+//TODO fix crash on no shoes being returned
+//TODO make it look better
+//TODO remove hard coded strings
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
