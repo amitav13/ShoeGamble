@@ -160,17 +160,13 @@ public class GeneratedShoe extends Activity {
                     urlConnection.setDoOutput(true);
                     urlConnection.setRequestProperty("Content-Type",
                             "application/x-www-form-urlencoded");
-                    String postParameters = "grant_type=client_credentials&client_id=53e61f45200934020000001c&client_secret=fdqtdCcqywbR_JfGdd6BYtO5";
+                    String postParameters = "grant_type=client_credentials&client_id="+OAuth2ClientCredentials.CLIENT_ID
+                            +"&client_secret="+OAuth2ClientCredentials.CLIENT_SECRET;
                     urlConnection.setFixedLengthStreamingMode(
                             postParameters.getBytes().length);
                     PrintWriter out = new PrintWriter(urlConnection.getOutputStream());
                     out.print(postParameters);
                     out.close();
-                    /*
-                    urlConnection.addRequestProperty("grant_type", "client_credentials");
-                    urlConnection.addRequestProperty("client_id", "53e61f45200934020000001c");
-                    urlConnection.addRequestProperty("client_secret", "fdqtdCcqywbR_JfGdd6BYtO5");
-                    */
 
                     urlConnection.connect();
                     //authJsonStr = urlConnection.getResponseMessage();
@@ -207,9 +203,7 @@ public class GeneratedShoe extends Activity {
                     JSONObject authJson = new JSONObject(authJsonStr);
                     String access_token_base64 = authJson.getString("access_token_base64");
 
-
                     //ACCESS TOKEN RECEIVED
-                    Log.v(LOG_TAG, "Access token base 64: " + access_token_base64);
                     Uri builtUri= null;
                     if (gender.equals("Male")){
                         builtUri = Uri.parse(MEN_BASE_URL).buildUpon()
